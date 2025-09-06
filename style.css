@@ -1,21 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart ToDo</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="todo-container">
-    <h1>✨ Smart ToDo ✨</h1>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <input id="todo-input" type="text" class="todo-input" placeholder="Enter a new task..." />
-    <button id="add-btn" class="todo-button">➕ Add Task</button>
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
 
-    <ul id="todo-list" class="todo-list"></ul>
-  </div>
+.todo-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  text-align: center;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.todo-container h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #ffdf6b;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+.todo-input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.todo-button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  color: white;
+  transition: transform 0.2s ease-in-out;
+}
+
+.todo-button:hover {
+  transform: scale(1.05);
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  background: rgba(0, 0, 0, 0.2);
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.todo-list li.completed {
+  text-decoration: line-through;
+  color: #b2b2b2;
+}
