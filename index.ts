@@ -1,9 +1,4 @@
-type Todo = {
-  id: string;
-  text: string;
-  isCompleted: boolean;
-};
-
+type Todo = { id: string; text: string; isCompleted: boolean; };
 let todos: Todo[] = [];
 
 function generateUniqueId(): string {
@@ -13,10 +8,8 @@ function generateUniqueId(): string {
 function addTodo(): void {
   const input = document.getElementById("todo-input") as HTMLInputElement;
   const text = input.value.trim();
-  if (!text) {
-    alert("To-do text cannot be empty!");
-    return;
-  }
+  if (!text) { alert("Task cannot be empty!"); return; }
+
   const newTodo: Todo = { id: generateUniqueId(), text, isCompleted: false };
   todos.push(newTodo);
   input.value = "";
@@ -24,15 +17,13 @@ function addTodo(): void {
 }
 
 function toggleComplete(id: string): void {
-  const todo = todos.find((t) => t.id === id);
-  if (todo) {
-    todo.isCompleted = !todo.isCompleted;
-    renderTodos();
-  }
+  const todo = todos.find(t => t.id === id);
+  if (todo) todo.isCompleted = !todo.isCompleted;
+  renderTodos();
 }
 
 function deleteTodo(id: string): void {
-  todos = todos.filter((t) => t.id !== id);
+  todos = todos.filter(t => t.id !== id);
   renderTodos();
 }
 
@@ -45,17 +36,34 @@ function renderTodos(): void {
   }
   todos.forEach(todo => {
     const li = document.createElement("li");
+    li.className = todo.isCompleted ? "completed" : "";
     li.innerHTML = `
-      <span style="text-decoration: ${todo.isCompleted ? "line-through" : "none"}">
-        ${todo.text}
-      </span>
-      <button onclick="toggleComplete('${todo.id}')">✔</button>
-      <button onclick="deleteTodo('${todo.id}')">❌</button>
+      <span>${todo.text}</span>
+      <div>
+        <button onclick="toggleComplete('${todo.id}')">✔</button>
+        <button onclick="deleteTodo('${todo.id}')">❌</button>
+      </div>
     `;
     list.appendChild(li);
   });
 }
 
-document.getElementById("add-btn")?.addEventListener("click", addTodo);
+// Event listeners
+(document.getElementById("add-btn") as HTMLButtonElement).addEventListener("click", addTodo);
 (window as any).toggleComplete = toggleComplete;
 (window as any).deleteTodo = deleteTodo;
+
+// Dark mode toggle
+(document.getElementById("toggle-mode") as HTMLButtonElement).addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
+// Keyboard support
+const inputEl = document.getElementById("todo-input") as HTMLInputElement;
+inputEl.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") addTodo();
+  else if ((e.key === "Backspace" || e.key === "Delete") && todos.length > 0) {
+    todos.pop();
+    renderTodos();
+  }
+});
