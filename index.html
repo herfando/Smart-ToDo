@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart ToDo</title>
+  <title>Smart To-Do List</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="todo-container">
-    <h1>✨ Smart ToDo ✨</h1>
+  <div class="container">
+    <h1>📝 Smart To-Do List</h1>
 
-    <input id="todo-input" type="text" class="todo-input" placeholder="Enter a new task..." />
-    <button id="add-btn" class="todo-button">➕ Add Task</button>
+    <div class="input-container">
+      <input id="todo-input" type="text" placeholder="Add your task...">
+      <button id="add-btn">Add</button>
+      <button id="toggle-mode">🌙</button>
+    </div>
 
-    <ul id="todo-list" class="todo-list"></ul>
+    <ul id="todo-list"></ul>
   </div>
 
-  <!-- Panggil hasil compile dari TypeScript -->
   <script src="index.js"></script>
 </body>
 </html>
