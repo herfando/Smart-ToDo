@@ -1,0 +1,20 @@
+{
+  "name": "todo-typescript",
+  "version": "1.0.0",
+  "description": "Interactive To-Do List (TypeScript Edition)",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.13",
+    "@types/prompt-sync": "^4.2.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.0"
+  }
+}
