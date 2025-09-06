@@ -1,4 +1,4 @@
-type Todo = { id: string; text: string; isCompleted: boolean; };
+type Todo = { id: string; text: string; isCompleted: boolean };
 let todos: Todo[] = [];
 
 function generateUniqueId(): string {
@@ -8,7 +8,7 @@ function generateUniqueId(): string {
 function addTodo(): void {
   const input = document.getElementById("todo-input") as HTMLInputElement;
   const text = input.value.trim();
-  if (!text) { alert("Task cannot be empty!"); return; }
+  if (!text) return;
 
   const newTodo: Todo = { id: generateUniqueId(), text, isCompleted: false };
   todos.push(newTodo);
@@ -22,8 +22,9 @@ function toggleComplete(id: string): void {
   renderTodos();
 }
 
-function deleteTodo(id: string): void {
-  todos = todos.filter(t => t.id !== id);
+function deleteTodo(id?: string): void {
+  if (id) todos = todos.filter(t => t.id !== id);
+  else todos.pop();
   renderTodos();
 }
 
@@ -34,6 +35,7 @@ function renderTodos(): void {
     list.innerHTML = "<li>No tasks yet. Add one above!</li>";
     return;
   }
+
   todos.forEach(todo => {
     const li = document.createElement("li");
     li.className = todo.isCompleted ? "completed" : "";
@@ -48,22 +50,26 @@ function renderTodos(): void {
   });
 }
 
-// Event listeners
-(document.getElementById("add-btn") as HTMLButtonElement).addEventListener("click", addTodo);
+// Global
 (window as any).toggleComplete = toggleComplete;
 (window as any).deleteTodo = deleteTodo;
+(document.getElementById("add-btn") as HTMLButtonElement).addEventListener("click", addTodo);
 
-// Dark mode toggle
-(document.getElementById("toggle-mode") as HTMLButtonElement).addEventListener("click", () => {
+// Dark mode toggle + save preference
+const toggle = document.getElementById("toggle-mode") as HTMLButtonElement;
+toggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
+  localStorage.setItem("darkMode", document.body.classList.contains("dark") ? "true" : "false");
 });
+
+// Set dark mode on reload
+if (localStorage.getItem("darkMode") === "true") {
+  document.body.classList.add("dark");
+}
 
 // Keyboard support
 const inputEl = document.getElementById("todo-input") as HTMLInputElement;
 inputEl.addEventListener("keydown", (e) => {
   if (e.key === "Enter") addTodo();
-  else if ((e.key === "Backspace" || e.key === "Delete") && todos.length > 0) {
-    todos.pop();
-    renderTodos();
-  }
+  else if (e.key === "Backspace" || e.key === "Delete") deleteTodo();
 });

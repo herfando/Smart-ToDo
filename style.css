@@ -1,9 +1,10 @@
 :root {
-  --primary-color: #6c63ff;
-  --bg-light: #f9f9f9;
+  --primary: #4f46e5;
+  --accent: #3b82f6;
+  --bg-light: #f5f6fa;
   --bg-dark: #1e1e2f;
-  --text-light: #fff;
-  --text-dark: #111;
+  --text-light: #ffffff;
+  --text-dark: #111111;
 }
 
 body {
@@ -12,7 +13,7 @@ body {
   padding: 0;
   background: var(--bg-light);
   color: var(--text-dark);
-  transition: background 0.3s, color 0.3s;
+  transition: all 0.3s ease;
 }
 
 body.dark {
@@ -27,10 +28,10 @@ body.dark {
 }
 
 h1 {
-  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
@@ -43,15 +44,21 @@ h1 {
 
 input {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   font-size: 1rem;
   border-radius: 8px;
   border: 2px solid #ccc;
-  transition: border 0.3s;
+  transition: all 0.3s;
+}
+
+body.dark input {
+  background: #2a2a3d;
+  color: var(--text-light);
+  border-color: #5555aa;
 }
 
 input:focus {
-  border-color: var(--primary-color);
+  border-color: var(--primary);
   outline: none;
 }
 
@@ -59,21 +66,26 @@ button {
   padding: 10px 15px;
   border: none;
   border-radius: 8px;
-  background: var(--primary-color);
+  background: var(--primary);
   color: #fff;
   cursor: pointer;
   font-weight: bold;
-  transition: transform 0.2s, background 0.3s;
+  transition: all 0.3s;
 }
 
 button:hover {
+  box-shadow: 0 0 10px var(--accent);
   transform: translateY(-2px);
-  background: #534ed8;
 }
 
 #toggle-mode {
   background: #ccc;
   color: #333;
+}
+
+body.dark #toggle-mode {
+  background: #4444aa;
+  color: #fff;
 }
 
 #todo-list {
@@ -82,14 +94,18 @@ button:hover {
 }
 
 #todo-list li {
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   margin-bottom: 10px;
   padding: 15px;
   border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.3s, opacity 0.3s;
+  color: #fff;
+  transform: translateX(-50px);
+  opacity: 0;
+  animation: slideIn 0.5s forwards;
+  transition: all 0.3s;
 }
 
 #todo-list li.completed {
@@ -109,6 +125,10 @@ button:hover {
 }
 
 #todo-list li button:hover {
-  background: var(--primary-color);
+  background: var(--accent);
   color: #fff;
+}
+
+@keyframes slideIn {
+  to { transform: translateX(0); opacity: 1; }
 }
