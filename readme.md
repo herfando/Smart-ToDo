@@ -1,37 +1,86 @@
-<!-- Banner Animasi -->
 <p align="center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmZkNzNjYjdmN2E0MjU1NDE3MDU5N2JiNTY5MjliMmRjNjlkN2FjMyZjdD1n/26gsvUo2nU3l7zJ1i/giphy.gif" width="100%" alt="Smart ToDo Banner"/>
+  <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Todo GIF" width="200"/>
 </p>
 
-<h1 align="center">🌟 SMART TO-DO 🌟</h1>
+# 🌈 Awesome TypeScript Todo App ✅
 
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&pause=1000&color=FF5733&center=true&vCenter=true&width=500&lines=Minimalist+but+Powerful;100%+TypeScript;Boost+Your+Productivity;Open+Source+%F0%9F%92%9F" alt="Typing SVG" />
-</p>
+**Author:** Herfando  
+
+Manage your tasks in style with **dark mode, animations, and keyboard shortcuts**!
 
 ---
 
-## 🎆 Why Smart-ToDo?
+## ✨ Features
 
-✨ A **colorful CLI To-Do app** that makes productivity fun  
-✨ Written in **pure TypeScript** — no React, no Next.js  
-✨ Sleek, fast, and hacker-style terminal vibes  
-✨ Perfect for learning or daily task management 🚀  
-
----
-
-## 🌈 Preview
+- Add, delete, and mark tasks as completed  
+- Keyboard support: **Enter** = add, **Backspace/Delete** = remove last  
+- Dark mode with saved preference  
+- Unique ID generation for each task  
+- Fully typed with **TypeScript**  
 
 <p align="center">
-  <img src="https://i.imgur.com/ghxqX6t.gif" alt="Smart ToDo Demo" width="600"/>
+  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Dark Mode Animation" width="400"/>
 </p>
 
 ---
 
-## ⚡ Quick Start
+## 🛠 Installation
+
+Clone the repo and open `index.html` in your browser:
 
 ```bash
-git clone https://github.com/herfando/Smart-ToDo.git
-cd Smart-ToDo
-npm install
-npm start
+git clone https://github.com/herfando/todo-typescript.git
+cd todo-typescript
+open index.html
+
+
+🚀 Usage
+
+Type your task in the input field
+
+Press Enter or click Add
+
+Toggle task completion with ✔
+
+Delete task with ❌
+
+Switch dark mode with the button
+
+🎨 Customization
+
+Colors: Modify CSS in your HTML
+
+Animations: Adjust CSS transitions
+
+GIFs: Replace links in README for your preferred animations
+
+⚡ Tech Stack
+
+TypeScript ✅
+
+HTML5 & CSS3 🌐
+
+Vanilla JavaScript DOM API 💻
+
+
+MIT License
+
+Copyright (c) 2025 Herfando
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
